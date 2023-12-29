@@ -1,0 +1,28 @@
+<div class="bg" style="margin-top: 80px;">
+    <mat-spinner *ngIf="isSpinning" [diameter]="50" class="spinner"></mat-spinner>
+    <div class="parent">
+      <div class="child">
+        <h1 class="form-title">Leave</h1>
+        <form class="login-form" [formGroup]="validationForm">
+  
+          <mat-form-field appearance="outline" class="form-field">
+            <mat-label>Subject</mat-label>
+            <input matInput type="text" placeholder="Subject" formControlName="subject" />
+            <mat-error *ngIf="validationForm.get('subject')?.hasError('required')">This field is required!</mat-error>
+          </mat-form-field>
+  
+          <mat-form-field appearance="outline" class="form-field">
+            <mat-label>Body</mat-label>
+            <textarea matInput placeholder="Body" formControlName="body"></textarea>
+            <mat-error *ngIf="validationForm.get('body')?.hasError('required')">This field is required!</mat-error>
+          </mat-form-field>
+  
+          <button mat-raised-button color="primary" (click)="applyLeave()" [disabled]="validationForm.invalid">
+            Submit
+          </button>
+  
+        </form>
+      </div>
+    </div>
+  </div>
+  
